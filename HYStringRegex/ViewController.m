@@ -12,11 +12,18 @@
 #import "UIFont+HY.h"
 #import "KeyboardManager.h"
 
+#import "HYTextFieldView.h"
+
 #define TEXTFIELD_WIDTH 200.0
 #define TEXTFIELD_HEIGHT 44.0
 
 @interface ViewController ()<UITextFieldDelegate>
-@property (nonatomic , strong) UITextField *emailTextField;
+@property (nonatomic , strong) HYTextFieldView *emailTextField;
+@property (nonatomic , strong) HYTextFieldView *phoneTextField;
+@property (nonatomic , strong) HYTextFieldView *ipTextField;
+@property (nonatomic , strong) HYTextFieldView *idcardTextField;
+@property (nonatomic , strong) HYTextFieldView *accountTextField;
+@property (nonatomic , strong) HYTextFieldView *taxNumberTextField;
 @end
 
 @implementation ViewController
@@ -32,6 +39,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     [self.view addSubview:self.emailTextField];
+    [self.view addSubview:self.phoneTextField];
+    [self.view addSubview:self.ipTextField];
+    [self.view addSubview:self.idcardTextField];
+    [self.view addSubview:self.accountTextField];
+    [self.view addSubview:self.taxNumberTextField];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onTextFieldDidChanged:)
@@ -54,6 +66,20 @@
     self.emailTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
     sideY += 10+TEXTFIELD_HEIGHT;
     
+    self.phoneTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
+    sideY += 10+TEXTFIELD_HEIGHT;
+    
+    self.idcardTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
+    sideY += 10+TEXTFIELD_HEIGHT;
+    
+    self.ipTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
+    sideY += 10+TEXTFIELD_HEIGHT;
+    
+    self.accountTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
+    sideY += 10+TEXTFIELD_HEIGHT;
+    
+    self.taxNumberTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
+    sideY += 10+TEXTFIELD_HEIGHT;
     
 }
 
@@ -63,20 +89,52 @@
 }
 
 #pragma mark - TextFields
-- (UITextField *)emailTextField
+- (HYTextFieldView *)emailTextField
 {
     if (!_emailTextField) {
-        _emailTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-        _emailTextField.textColor = [UIColor colorFromRGB:0x202325];
-        _emailTextField.font = [UIFont getHeitiSCFont:14];
-        _emailTextField.textAlignment = NSTextAlignmentCenter;
-        _emailTextField.backgroundColor = [UIColor clearColor];
-        _emailTextField.placeholder = @"请输入邮箱";
-        _emailTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        _emailTextField.layer.borderWidth = 0.5;
-        _emailTextField.layer.cornerRadius = 4.0;
+        _emailTextField = [HYTextFieldView defaultTextField:HY_Email];
     }
     return _emailTextField;
+}
+
+- (HYTextFieldView *)phoneTextField
+{
+    if (!_phoneTextField) {
+        _phoneTextField = [HYTextFieldView defaultTextField:HY_Phone];
+    }
+    return _phoneTextField;
+}
+
+- (HYTextFieldView *)idcardTextField
+{
+    if (!_idcardTextField) {
+        _idcardTextField = [HYTextFieldView defaultTextField:HY_IDCard];
+    }
+    return _idcardTextField;
+}
+
+- (HYTextFieldView *)ipTextField
+{
+    if (!_ipTextField) {
+        _ipTextField = [HYTextFieldView defaultTextField:HY_IPAddress];
+    }
+    return _ipTextField;
+}
+
+- (HYTextFieldView *)accountTextField
+{
+    if (!_accountTextField) {
+        _accountTextField = [HYTextFieldView defaultTextField:HY_Account];
+    }
+    return _accountTextField;
+}
+
+- (HYTextFieldView *)taxNumberTextField
+{
+    if (!_taxNumberTextField) {
+        _taxNumberTextField = [HYTextFieldView defaultTextField:HY_TaxNumber];
+    }
+    return _taxNumberTextField;
 }
 
 #pragma mark - Notification Action
@@ -87,11 +145,77 @@
         return;
     }
     
-    if ([textField.text isValidEmail]) {
-        textField.layer.borderColor = [UIColor greenColor].CGColor;
-    } else {
-        textField.layer.borderColor = [UIColor redColor].CGColor;
+    if (![[textField superview] isKindOfClass:[HYTextFieldView class]]) {
+        return;
     }
+    
+    HYTextFieldView *superView = (HYTextFieldView *)[textField superview];
+    NSLog(@"%@",superView.text);
+    
+    switch (superView.type) {
+        case HY_Email:
+        {
+            if ([superView.text isValidEmail]) {
+                textField.layer.borderColor = [UIColor greenColor].CGColor;
+            } else {
+                textField.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+            break;
+            
+        case HY_Phone:
+        {
+            if ([superView.text isValidPhoneNum]) {
+                textField.layer.borderColor = [UIColor greenColor].CGColor;
+            } else {
+                textField.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+            break;
+            
+        case HY_IDCard:
+        {
+            if ([superView.text isValidCarNo]) {
+                textField.layer.borderColor = [UIColor greenColor].CGColor;
+            } else {
+                textField.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+            break;
+            
+        case HY_IPAddress:
+        {
+            if ([superView.text isValidIP]) {
+                textField.layer.borderColor = [UIColor greenColor].CGColor;
+            } else {
+                textField.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+            break;
+            
+        case HY_Account:
+        {
+            if ([superView.text isValidChinese]) {
+                textField.layer.borderColor = [UIColor greenColor].CGColor;
+            } else {
+                textField.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+            break;
+            
+        case HY_TaxNumber:
+        {
+            if ([superView.text isValidTaxNo]) {
+                textField.layer.borderColor = [UIColor greenColor].CGColor;
+            } else {
+                textField.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+            break;
+        default:
+            break;
+    }
+    
 }
 
 @end
