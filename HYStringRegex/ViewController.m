@@ -8,15 +8,10 @@
 
 #import "ViewController.h"
 #import "NSString+HYRegex.h"
-#import "UIColor+HY.h"
-#import "UIFont+HY.h"
 #import "KeyboardManager.h"
 
 #import "HYContentView.h"
 #import "HYTextFieldView.h"
-
-#define TEXTFIELD_WIDTH 200.0
-#define TEXTFIELD_HEIGHT 44.0
 
 @interface ViewController ()<UITextFieldDelegate>
 @property (nonatomic , strong) HYContentView   *contentView;
