@@ -10,6 +10,7 @@
 #import "NSString+HYRegex.h"
 #import "UIColor+HY.h"
 #import "UIFont+HY.h"
+#import "KeyboardManager.h"
 
 #define TEXTFIELD_WIDTH 200.0
 #define TEXTFIELD_HEIGHT 44.0
@@ -37,20 +38,10 @@
                                                  name:UITextFieldTextDidChangeNotification
                                                object:nil];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onTextFieldDidEndEditing:)
-                                                 name:UITextFieldTextDidEndEditingNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onKeyBoardWillShow:)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onKeyBoardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
+    // 设置当前页面防止键盘遮挡效果
+    [IQKeyboardManager sharedManager].enable = YES;
+    // 设置点击背景收回键盘
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = YES;
 }
 
 - (void)viewWillLayoutSubviews
@@ -101,21 +92,6 @@
     } else {
         textField.layer.borderColor = [UIColor redColor].CGColor;
     }
-}
-
-- (void)onTextFieldDidEndEditing:(UITextField *)textField
-{
-    
-}
-
-- (void)onKeyBoardWillShow:(NSNotification *)notification
-{
-    
-}
-
-- (void)onKeyBoardWillHide:(NSNotification *)notification
-{
-    
 }
 
 @end
