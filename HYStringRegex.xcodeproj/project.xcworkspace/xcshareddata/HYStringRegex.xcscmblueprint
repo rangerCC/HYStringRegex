@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9F1332A0F2471DD6C1EFC9274DBB257BE32A8C5A",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9F1332A0F2471DD6C1EFC9274DBB257BE32A8C5A" : 0,
+    "8CFEB7863264194B5CF6E9DD0F79C1128CE9B54E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8B2B4C39-D163-4948-85AE-87E9AC96F006",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9F1332A0F2471DD6C1EFC9274DBB257BE32A8C5A" : "HYStringRegex\/",
+    "8CFEB7863264194B5CF6E9DD0F79C1128CE9B54E" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "HYStringRegex",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "HYStringRegex.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:rangerCC\/MultiProjTest.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8CFEB7863264194B5CF6E9DD0F79C1128CE9B54E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rangerCC\/HYStringRegex",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9F1332A0F2471DD6C1EFC9274DBB257BE32A8C5A"
+    }
+  ]
+}

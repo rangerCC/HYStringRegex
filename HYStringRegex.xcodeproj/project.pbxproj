@@ -11,9 +11,12 @@
 		42CC22BB1D52296F000C4CFA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22BA1D52296F000C4CFA /* AppDelegate.m */; };
 		42CC22BE1D52296F000C4CFA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22BD1D52296F000C4CFA /* ViewController.m */; };
 		42CC22C31D52296F000C4CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42CC22C21D52296F000C4CFA /* Assets.xcassets */; };
-		42CC22D01D522A98000C4CFA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42CC22CD1D522A98000C4CFA /* Default-568h@2x.png */; };
-		42CC22D11D522A98000C4CFA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 42CC22CE1D522A98000C4CFA /* Default.png */; };
-		42CC22D21D522A98000C4CFA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42CC22CF1D522A98000C4CFA /* Default@2x.png */; };
+		42CC22D61D522D29000C4CFA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42CC22D31D522D29000C4CFA /* Default-568h@2x.png */; };
+		42CC22D71D522D29000C4CFA /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 42CC22D41D522D29000C4CFA /* Default.png */; };
+		42CC22D81D522D29000C4CFA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42CC22D51D522D29000C4CFA /* Default@2x.png */; };
+		42CC22DC1D522DDF000C4CFA /* NSString+HYRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22DB1D522DDF000C4CFA /* NSString+HYRegex.m */; };
+		42CC22E11D523384000C4CFA /* UIColor+HY.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22E01D523384000C4CFA /* UIColor+HY.m */; };
+		42CC22E41D5233F8000C4CFA /* UIFont+HY.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22E31D5233F8000C4CFA /* UIFont+HY.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +28,15 @@
 		42CC22BD1D52296F000C4CFA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		42CC22C21D52296F000C4CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42CC22C71D52296F000C4CFA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42CC22CD1D522A98000C4CFA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../../../../Desktop/常用2/Default-568h@2x.png"; sourceTree = "<group>"; };
-		42CC22CE1D522A98000C4CFA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "../../../../Desktop/常用2/Default.png"; sourceTree = "<group>"; };
-		42CC22CF1D522A98000C4CFA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../../../../Desktop/常用2/Default@2x.png"; sourceTree = "<group>"; };
+		42CC22D31D522D29000C4CFA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		42CC22D41D522D29000C4CFA /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		42CC22D51D522D29000C4CFA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		42CC22DA1D522DDF000C4CFA /* NSString+HYRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HYRegex.h"; sourceTree = "<group>"; };
+		42CC22DB1D522DDF000C4CFA /* NSString+HYRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HYRegex.m"; sourceTree = "<group>"; };
+		42CC22DF1D523384000C4CFA /* UIColor+HY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HY.h"; sourceTree = "<group>"; };
+		42CC22E01D523384000C4CFA /* UIColor+HY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HY.m"; sourceTree = "<group>"; };
+		42CC22E21D5233F8000C4CFA /* UIFont+HY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+HY.h"; sourceTree = "<group>"; };
+		42CC22E31D5233F8000C4CFA /* UIFont+HY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+HY.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +69,12 @@
 		42CC22B51D52296F000C4CFA /* HYStringRegex */ = {
 			isa = PBXGroup;
 			children = (
-				42CC22CD1D522A98000C4CFA /* Default-568h@2x.png */,
-				42CC22CE1D522A98000C4CFA /* Default.png */,
-				42CC22CF1D522A98000C4CFA /* Default@2x.png */,
+				42CC22DD1D52336B000C4CFA /* Color */,
+				42CC22DE1D52336B000C4CFA /* Font */,
+				42CC22D91D522DCC000C4CFA /* Regex */,
+				42CC22D31D522D29000C4CFA /* Default-568h@2x.png */,
+				42CC22D41D522D29000C4CFA /* Default.png */,
+				42CC22D51D522D29000C4CFA /* Default@2x.png */,
 				42CC22B91D52296F000C4CFA /* AppDelegate.h */,
 				42CC22BA1D52296F000C4CFA /* AppDelegate.m */,
 				42CC22BC1D52296F000C4CFA /* ViewController.h */,
@@ -80,6 +92,33 @@
 				42CC22B71D52296F000C4CFA /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		42CC22D91D522DCC000C4CFA /* Regex */ = {
+			isa = PBXGroup;
+			children = (
+				42CC22DA1D522DDF000C4CFA /* NSString+HYRegex.h */,
+				42CC22DB1D522DDF000C4CFA /* NSString+HYRegex.m */,
+			);
+			path = Regex;
+			sourceTree = "<group>";
+		};
+		42CC22DD1D52336B000C4CFA /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				42CC22DF1D523384000C4CFA /* UIColor+HY.h */,
+				42CC22E01D523384000C4CFA /* UIColor+HY.m */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		42CC22DE1D52336B000C4CFA /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				42CC22E21D5233F8000C4CFA /* UIFont+HY.h */,
+				42CC22E31D5233F8000C4CFA /* UIFont+HY.m */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +179,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42CC22D21D522A98000C4CFA /* Default@2x.png in Resources */,
+				42CC22D81D522D29000C4CFA /* Default@2x.png in Resources */,
 				42CC22C31D52296F000C4CFA /* Assets.xcassets in Resources */,
-				42CC22D11D522A98000C4CFA /* Default.png in Resources */,
-				42CC22D01D522A98000C4CFA /* Default-568h@2x.png in Resources */,
+				42CC22D71D522D29000C4CFA /* Default.png in Resources */,
+				42CC22D61D522D29000C4CFA /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,9 +193,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42CC22DC1D522DDF000C4CFA /* NSString+HYRegex.m in Sources */,
+				42CC22E11D523384000C4CFA /* UIColor+HY.m in Sources */,
 				42CC22BE1D52296F000C4CFA /* ViewController.m in Sources */,
 				42CC22BB1D52296F000C4CFA /* AppDelegate.m in Sources */,
 				42CC22B81D52296F000C4CFA /* main.m in Sources */,
+				42CC22E41D5233F8000C4CFA /* UIFont+HY.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +332,7 @@
 				42CC22CC1D52296F000C4CFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
