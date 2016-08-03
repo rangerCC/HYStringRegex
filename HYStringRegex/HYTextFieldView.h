@@ -13,7 +13,10 @@ typedef enum : NSUInteger {
     HY_Phone,
     HY_IDCard,
     HY_IPAddress,
+    HY_URL,
     HY_Account,
+    HY_Chinese,
+    HY_Postalcode,
     HY_TaxNumber,
 } HYTextFieldViewType;
 

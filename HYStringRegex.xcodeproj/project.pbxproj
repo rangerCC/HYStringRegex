@@ -19,6 +19,8 @@
 		42CC22E41D5233F8000C4CFA /* UIFont+HY.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22E31D5233F8000C4CFA /* UIFont+HY.m */; };
 		42CC22E71D52472D000C4CFA /* HYTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22E61D52472D000C4CFA /* HYTextFieldView.m */; };
 		42CC22EB1D524EED000C4CFA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42CC22EA1D524EED000C4CFA /* icon.png */; };
+		42CC22EE1D5252EC000C4CFA /* HYContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22ED1D5252EC000C4CFA /* HYContentView.m */; };
+		42CC22F21D5255A6000C4CFA /* NSObject+KVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22F11D5255A6000C4CFA /* NSObject+KVC.m */; };
 		97AF1DB3F8553EDF36222964 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 224BDE5069E346CAE59788AF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,10 @@
 		42CC22E51D52472D000C4CFA /* HYTextFieldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYTextFieldView.h; sourceTree = "<group>"; };
 		42CC22E61D52472D000C4CFA /* HYTextFieldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYTextFieldView.m; sourceTree = "<group>"; };
 		42CC22EA1D524EED000C4CFA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		42CC22EC1D5252EC000C4CFA /* HYContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYContentView.h; sourceTree = "<group>"; };
+		42CC22ED1D5252EC000C4CFA /* HYContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYContentView.m; sourceTree = "<group>"; };
+		42CC22F01D5255A6000C4CFA /* NSObject+KVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVC.h"; sourceTree = "<group>"; };
+		42CC22F11D5255A6000C4CFA /* NSObject+KVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVC.m"; sourceTree = "<group>"; };
 		A26CEABE7E1CB7E6579EC9FD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +96,7 @@
 		42CC22B51D52296F000C4CFA /* HYStringRegex */ = {
 			isa = PBXGroup;
 			children = (
+				42CC22EF1D525597000C4CFA /* KVC */,
 				42CC22EA1D524EED000C4CFA /* icon.png */,
 				42CC22DD1D52336B000C4CFA /* Color */,
 				42CC22DE1D52336B000C4CFA /* Font */,
@@ -106,6 +113,8 @@
 				42CC22B61D52296F000C4CFA /* Supporting Files */,
 				42CC22E51D52472D000C4CFA /* HYTextFieldView.h */,
 				42CC22E61D52472D000C4CFA /* HYTextFieldView.m */,
+				42CC22EC1D5252EC000C4CFA /* HYContentView.h */,
+				42CC22ED1D5252EC000C4CFA /* HYContentView.m */,
 			);
 			path = HYStringRegex;
 			sourceTree = "<group>";
@@ -143,6 +152,15 @@
 				42CC22E31D5233F8000C4CFA /* UIFont+HY.m */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		42CC22EF1D525597000C4CFA /* KVC */ = {
+			isa = PBXGroup;
+			children = (
+				42CC22F01D5255A6000C4CFA /* NSObject+KVC.h */,
+				42CC22F11D5255A6000C4CFA /* NSObject+KVC.m */,
+			);
+			path = KVC;
 			sourceTree = "<group>";
 		};
 		6284035BFB627E2CC1DFA19D /* Frameworks */ = {
@@ -278,6 +296,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				42CC22DC1D522DDF000C4CFA /* NSString+HYRegex.m in Sources */,
+				42CC22EE1D5252EC000C4CFA /* HYContentView.m in Sources */,
+				42CC22F21D5255A6000C4CFA /* NSObject+KVC.m in Sources */,
 				42CC22E11D523384000C4CFA /* UIColor+HY.m in Sources */,
 				42CC22BE1D52296F000C4CFA /* ViewController.m in Sources */,
 				42CC22BB1D52296F000C4CFA /* AppDelegate.m in Sources */,

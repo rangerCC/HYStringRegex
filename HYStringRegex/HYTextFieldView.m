@@ -11,6 +11,9 @@
 #import "UIColor+HY.h"
 #import "UIFont+HY.h"
 
+#define TEXTFIELD_WIDTH 200.0
+#define TEXTFIELD_HEIGHT 44.0
+
 @interface HYTextFieldView ()
 @property (nonatomic , strong)UITextField *textField;
 @end
@@ -29,12 +32,13 @@
 {
     [super layoutSubviews];
     
-    self.textField.frame = self.bounds;
+    CGFloat sideX = (self.frame.size.width-TEXTFIELD_WIDTH)/2.0;
+    self.textField.frame = CGRectMake(sideX, 0, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
 }
 
 + (HYTextFieldView *)defaultTextField:(HYTextFieldViewType)type
 {
-    HYTextFieldView *textField = [[HYTextFieldView alloc] initWithFrame:CGRectZero];
+    HYTextFieldView *textField = [[HYTextFieldView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, TEXTFIELD_HEIGHT)];
     textField.type = type;
     
     return textField;
@@ -61,8 +65,20 @@
             self.textField.placeholder = @"请输入ip地址";
             break;
             
+        case HY_URL:
+            self.textField.placeholder = @"请输入url链接";
+            break;
+            
         case HY_Account:
-            self.textField.placeholder = @"请输入用户账户";
+            self.textField.placeholder = @"请输入用户账户(首字符为字母或下划线，长度4-12位，不能包含中文)";
+            break;
+            
+        case HY_Chinese:
+            self.textField.placeholder = @"请输入纯汉字";
+            break;
+            
+        case HY_Postalcode:
+            self.textField.placeholder = @"请输入邮政编码";
             break;
             
         case HY_TaxNumber:

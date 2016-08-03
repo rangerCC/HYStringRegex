@@ -12,17 +12,22 @@
 #import "UIFont+HY.h"
 #import "KeyboardManager.h"
 
+#import "HYContentView.h"
 #import "HYTextFieldView.h"
 
 #define TEXTFIELD_WIDTH 200.0
 #define TEXTFIELD_HEIGHT 44.0
 
 @interface ViewController ()<UITextFieldDelegate>
+@property (nonatomic , strong) HYContentView   *contentView;
 @property (nonatomic , strong) HYTextFieldView *emailTextField;
 @property (nonatomic , strong) HYTextFieldView *phoneTextField;
 @property (nonatomic , strong) HYTextFieldView *ipTextField;
+@property (nonatomic , strong) HYTextFieldView *urlTextField;
 @property (nonatomic , strong) HYTextFieldView *idcardTextField;
 @property (nonatomic , strong) HYTextFieldView *accountTextField;
+@property (nonatomic , strong) HYTextFieldView *chineseTextField;
+@property (nonatomic , strong) HYTextFieldView *postCardTextField;
 @property (nonatomic , strong) HYTextFieldView *taxNumberTextField;
 @end
 
@@ -38,12 +43,17 @@
     self.title = @"字符串校验";
     self.view.backgroundColor = [UIColor whiteColor];
     
-    [self.view addSubview:self.emailTextField];
-    [self.view addSubview:self.phoneTextField];
-    [self.view addSubview:self.ipTextField];
-    [self.view addSubview:self.idcardTextField];
-    [self.view addSubview:self.accountTextField];
-    [self.view addSubview:self.taxNumberTextField];
+    [self.view addSubview:self.contentView];
+    
+    [self.contentView addModule:self.emailTextField];
+    [self.contentView addModule:self.phoneTextField];
+    [self.contentView addModule:self.ipTextField];
+    [self.contentView addModule:self.urlTextField];
+    [self.contentView addModule:self.idcardTextField];
+    [self.contentView addModule:self.accountTextField];
+    [self.contentView addModule:self.chineseTextField];
+    [self.contentView addModule:self.postCardTextField];
+    [self.contentView addModule:self.taxNumberTextField];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onTextFieldDidChanged:)
@@ -60,27 +70,7 @@
 {
     [super viewWillLayoutSubviews];
     
-    CGFloat sideX = (self.view.frame.size.width-TEXTFIELD_WIDTH)/2.0;
-    CGFloat sideY = self.navigationController.navigationBar.frame.size.height + 40.0;
-    
-    self.emailTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
-    sideY += 10+TEXTFIELD_HEIGHT;
-    
-    self.phoneTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
-    sideY += 10+TEXTFIELD_HEIGHT;
-    
-    self.idcardTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
-    sideY += 10+TEXTFIELD_HEIGHT;
-    
-    self.ipTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
-    sideY += 10+TEXTFIELD_HEIGHT;
-    
-    self.accountTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
-    sideY += 10+TEXTFIELD_HEIGHT;
-    
-    self.taxNumberTextField.frame = CGRectMake(sideX, sideY, TEXTFIELD_WIDTH, TEXTFIELD_HEIGHT);
-    sideY += 10+TEXTFIELD_HEIGHT;
-    
+    self.contentView.frame = CGRectMake(0, 10, self.view.frame.size.width, self.view.frame.size.height-10);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,6 +79,14 @@
 }
 
 #pragma mark - TextFields
+- (HYContentView *)contentView
+{
+    if (!_contentView) {
+        _contentView = [[HYContentView alloc] initWithFrame:CGRectZero];
+    }
+    return _contentView;
+}
+
 - (HYTextFieldView *)emailTextField
 {
     if (!_emailTextField) {
@@ -121,12 +119,36 @@
     return _ipTextField;
 }
 
+- (HYTextFieldView *)urlTextField
+{
+    if (!_urlTextField) {
+        _urlTextField = [HYTextFieldView defaultTextField:HY_URL];
+    }
+    return _urlTextField;
+}
+
 - (HYTextFieldView *)accountTextField
 {
     if (!_accountTextField) {
         _accountTextField = [HYTextFieldView defaultTextField:HY_Account];
     }
     return _accountTextField;
+}
+
+- (HYTextFieldView *)chineseTextField
+{
+    if (!_chineseTextField) {
+        _chineseTextField = [HYTextFieldView defaultTextField:HY_URL];
+    }
+    return _chineseTextField;
+}
+
+- (HYTextFieldView *)postCardTextField
+{
+    if (!_postCardTextField) {
+        _postCardTextField = [HYTextFieldView defaultTextField:HY_URL];
+    }
+    return _postCardTextField;
 }
 
 - (HYTextFieldView *)taxNumberTextField
@@ -175,7 +197,7 @@
             
         case HY_IDCard:
         {
-            if ([superView.text isValidCarNo]) {
+            if ([superView.text isValidIdCardNum]) {
                 textField.layer.borderColor = [UIColor greenColor].CGColor;
             } else {
                 textField.layer.borderColor = [UIColor redColor].CGColor;
@@ -193,9 +215,39 @@
         }
             break;
             
+        case HY_URL:
+        {
+            if ([superView.text isValidUrl]) {
+                textField.layer.borderColor = [UIColor greenColor].CGColor;
+            } else {
+                textField.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+            break;
+            
         case HY_Account:
         {
+            if ([superView.text isValidWithMinLenth:4 maxLenth:12 containChinese:NO firstCannotBeDigtal:YES]) {
+                textField.layer.borderColor = [UIColor greenColor].CGColor;
+            } else {
+                textField.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+            break;
+            
+        case HY_Chinese:
+        {
             if ([superView.text isValidChinese]) {
+                textField.layer.borderColor = [UIColor greenColor].CGColor;
+            } else {
+                textField.layer.borderColor = [UIColor redColor].CGColor;
+            }
+        }
+            break;
+            
+        case HY_Postalcode:
+        {
+            if ([superView.text isValidPostalcode]) {
                 textField.layer.borderColor = [UIColor greenColor].CGColor;
             } else {
                 textField.layer.borderColor = [UIColor redColor].CGColor;
