@@ -21,6 +21,10 @@
 		42CC22EB1D524EED000C4CFA /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 42CC22EA1D524EED000C4CFA /* icon.png */; };
 		42CC22EE1D5252EC000C4CFA /* HYContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22ED1D5252EC000C4CFA /* HYContentView.m */; };
 		42CC22F21D5255A6000C4CFA /* NSObject+KVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22F11D5255A6000C4CFA /* NSObject+KVC.m */; };
+		42CC22FA1D52EA08000C4CFA /* NSString+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22F91D52EA08000C4CFA /* NSString+JSON.m */; };
+		42CC22FD1D52EB3F000C4CFA /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22FC1D52EB3F000C4CFA /* Book.m */; };
+		42CC23001D52F269000C4CFA /* BookExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CC22FF1D52F269000C4CFA /* BookExt.m */; };
+		42CC23021D5324D6000C4CFA /* book.json in Resources */ = {isa = PBXBuildFile; fileRef = 42CC23011D5324D6000C4CFA /* book.json */; };
 		97AF1DB3F8553EDF36222964 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 224BDE5069E346CAE59788AF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +55,13 @@
 		42CC22ED1D5252EC000C4CFA /* HYContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYContentView.m; sourceTree = "<group>"; };
 		42CC22F01D5255A6000C4CFA /* NSObject+KVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVC.h"; sourceTree = "<group>"; };
 		42CC22F11D5255A6000C4CFA /* NSObject+KVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVC.m"; sourceTree = "<group>"; };
+		42CC22F81D52EA08000C4CFA /* NSString+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSON.h"; sourceTree = "<group>"; };
+		42CC22F91D52EA08000C4CFA /* NSString+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSON.m"; sourceTree = "<group>"; };
+		42CC22FB1D52EB3F000C4CFA /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		42CC22FC1D52EB3F000C4CFA /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		42CC22FE1D52F269000C4CFA /* BookExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookExt.h; sourceTree = "<group>"; };
+		42CC22FF1D52F269000C4CFA /* BookExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookExt.m; sourceTree = "<group>"; };
+		42CC23011D5324D6000C4CFA /* book.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = book.json; sourceTree = "<group>"; };
 		A26CEABE7E1CB7E6579EC9FD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +107,8 @@
 		42CC22B51D52296F000C4CFA /* HYStringRegex */ = {
 			isa = PBXGroup;
 			children = (
+				42CC23011D5324D6000C4CFA /* book.json */,
+				42CC22F71D52E9FA000C4CFA /* JSON */,
 				42CC22EF1D525597000C4CFA /* KVC */,
 				42CC22EA1D524EED000C4CFA /* icon.png */,
 				42CC22DD1D52336B000C4CFA /* Color */,
@@ -115,6 +128,10 @@
 				42CC22E61D52472D000C4CFA /* HYTextFieldView.m */,
 				42CC22EC1D5252EC000C4CFA /* HYContentView.h */,
 				42CC22ED1D5252EC000C4CFA /* HYContentView.m */,
+				42CC22FB1D52EB3F000C4CFA /* Book.h */,
+				42CC22FC1D52EB3F000C4CFA /* Book.m */,
+				42CC22FE1D52F269000C4CFA /* BookExt.h */,
+				42CC22FF1D52F269000C4CFA /* BookExt.m */,
 			);
 			path = HYStringRegex;
 			sourceTree = "<group>";
@@ -161,6 +178,15 @@
 				42CC22F11D5255A6000C4CFA /* NSObject+KVC.m */,
 			);
 			path = KVC;
+			sourceTree = "<group>";
+		};
+		42CC22F71D52E9FA000C4CFA /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				42CC22F81D52EA08000C4CFA /* NSString+JSON.h */,
+				42CC22F91D52EA08000C4CFA /* NSString+JSON.m */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		6284035BFB627E2CC1DFA19D /* Frameworks */ = {
@@ -234,6 +260,7 @@
 			files = (
 				42CC22D81D522D29000C4CFA /* Default@2x.png in Resources */,
 				42CC22EB1D524EED000C4CFA /* icon.png in Resources */,
+				42CC23021D5324D6000C4CFA /* book.json in Resources */,
 				42CC22C31D52296F000C4CFA /* Assets.xcassets in Resources */,
 				42CC22D71D522D29000C4CFA /* Default.png in Resources */,
 				42CC22D61D522D29000C4CFA /* Default-568h@2x.png in Resources */,
@@ -295,11 +322,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42CC23001D52F269000C4CFA /* BookExt.m in Sources */,
 				42CC22DC1D522DDF000C4CFA /* NSString+HYRegex.m in Sources */,
 				42CC22EE1D5252EC000C4CFA /* HYContentView.m in Sources */,
 				42CC22F21D5255A6000C4CFA /* NSObject+KVC.m in Sources */,
 				42CC22E11D523384000C4CFA /* UIColor+HY.m in Sources */,
+				42CC22FD1D52EB3F000C4CFA /* Book.m in Sources */,
 				42CC22BE1D52296F000C4CFA /* ViewController.m in Sources */,
+				42CC22FA1D52EA08000C4CFA /* NSString+JSON.m in Sources */,
 				42CC22BB1D52296F000C4CFA /* AppDelegate.m in Sources */,
 				42CC22B81D52296F000C4CFA /* main.m in Sources */,
 				42CC22E41D5233F8000C4CFA /* UIFont+HY.m in Sources */,

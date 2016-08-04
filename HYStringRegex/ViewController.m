@@ -8,10 +8,16 @@
 
 #import "ViewController.h"
 #import "NSString+HYRegex.h"
+#import "NSString+JSON.h"
 #import "KeyboardManager.h"
 
 #import "HYContentView.h"
 #import "HYTextFieldView.h"
+
+#import "YYModel.h"
+#import "AFNetworking.h"
+
+#import "Book.h"
 
 @interface ViewController ()<UITextFieldDelegate>
 @property (nonatomic , strong) HYContentView   *contentView;
@@ -66,6 +72,47 @@
     [super viewWillLayoutSubviews];
     
     self.contentView.frame = CGRectMake(0, 10, self.view.frame.size.width, self.view.frame.size.height-10);
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // AFNetWorking Test
+    NSURL *url = [NSURL URLWithString:@"https://g.alicdn.com/trip/template-style/0.0.220/HotelListStyle.json"];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"%@ %@", response, responseObject);
+            if (responseObject && [responseObject isKindOfClass:[NSDictionary class]]) {
+                
+            }
+        }
+    }];
+    [dataTask resume];
+    
+    // YYModel Test
+    
+    // 第一步：json数据转换为dictionary，方法1是jsonString->jsonObject；方法2是json文件->jsonObject
+    // 法1
+    NSDictionary *dict = [@"\{\"n\":\"Harry Pottery\",\"p\":256,\"ext\":{\"desc\":\"A book written by J.K.Rowing.\"},\"ID\":100010}" jsonObject];
+    // 法2
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"book.json" ofType:@""];
+    NSData *jsonData = [NSData dataWithContentsOfFile:path];
+    id jsonObj = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"%@",jsonObj);
+    
+    // 第二步：Test YYModel
+    // 字典类型转换为模型对象
+    Book *book = [Book yy_modelWithDictionary:dict];
+    // 模型对象转换为字典数据
+    NSDictionary *bookDic = [book yy_modelToJSONObject];
+    NSLog(@"%@",bookDic);
 }
 
 - (void)didReceiveMemoryWarning {
