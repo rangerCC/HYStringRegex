@@ -19,6 +19,8 @@
 
 #import "Book.h"
 
+#import "DownloadModel.h"
+
 @interface ViewController ()<UITextFieldDelegate>
 @property (nonatomic , strong) HYContentView   *contentView;
 @property (nonatomic , strong) HYTextFieldView *emailTextField;
@@ -35,7 +37,7 @@
 @implementation ViewController
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UITextFieldTextDidChangeNotification object:nil];
 }
 
 - (void)viewDidLoad {
@@ -56,6 +58,7 @@
     [self.contentView addModule:self.postCardTextField];
     [self.contentView addModule:self.taxNumberTextField];
     
+    // notificationSender传递nil，告知观察者接收所有对象的UITextFieldTextDidChangeNotification
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(onTextFieldDidChanged:)
                                                  name:UITextFieldTextDidChangeNotification
@@ -113,6 +116,14 @@
     // 模型对象转换为字典数据
     NSDictionary *bookDic = [book yy_modelToJSONObject];
     NSLog(@"%@",bookDic);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    DownloadModel *downloadModel = [[DownloadModel alloc] init];
+    [downloadModel start];
 }
 
 - (void)didReceiveMemoryWarning {
